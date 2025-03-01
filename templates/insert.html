@@ -12,28 +12,86 @@
 
 <body class="bg-blue-100 flex flex-col items-center justify-center min-h-screen text-center p-6">
 
-    <h1 class="text-green-500 text-4xl font-bold mb-4">
+    <h1 class="text-green-500 text-8xl font-extrabold uppercase tracking-wide mb-6">
         Rally Cat Cupboard
     </h1>
 
-    <p class="text-lg font-semibold text-gray-700">
-        Tailwind CSS Tutorial
+    <!-- Logo -->
+    <img src="rallycats.jpeg" alt="Rally Cat's Cupboard Logo" class="w-64 h-64 mb-6">
+
+    <p class="text-lg font-semibold text-gray-700 mb-4">
+        Please Add An Item Below
     </p>
 
-    <p class="text-gray-600 max-w-md mt-2">
-        You can use Tailwind CSS as a replacement for regular CSS. This framework helps you design websites quickly and efficiently.
-    </p>
+    <!-- Form Container -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <form>
+            <!-- Name -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700">Name:</label>
+                <input type="text" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Enter item name">
+            </div>
 
-    <button onclick="addDonation()" class="mt-6 px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300">
-        Add Donation
-    </button>
+            <!-- Quantity -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700">Quantity:</label>
+                <input type="number" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Enter quantity">
+            </div>
 
-    <script>
-        function addDonation() {
-            alert("Donation added!");
-        }
-    </script>
+            <!-- Expiration Date -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700">Expiration Date:</label>
+                <input type="date" class="w-full p-2 border border-gray-300 rounded mt-1">
+            </div>
+
+            <!-- Type Dropdown -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700">Type:</label>
+                <select class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <option value="">Select Type</option>
+                    <option value="canned">Canned Goods</option>
+                    <option value="dairy">Dairy</option>
+                    <option value="produce">Produce</option>
+                    <option value="meat">Meat</option>
+                    <option value="grains">Grains</option>
+                    <option value="snacks">Snacks</option>
+                </select>
+            </div>
+
+            <!-- Dietary Restriction Dropdown -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700">Dietary Restriction:</label>
+                <select class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <option value="">Select Restriction</option>
+                    <option value="none">None</option>
+                    <option value="gluten-free">Gluten-Free</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="nut-free">Nut-Free</option>
+                    <option value="hallal">Hallal</option>
+                    <option value="kosher">Kosher</option>
+                    <option value="dairy-free">Dairy-Free</option>
+                </select>
+            </div>
+
+            <!-- Perishable Dropdown -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700">Perishable:</label>
+                <select class="w-full p-2 border border-gray-300 rounded mt-1">
+                    <option value="">Select Restriction</option>
+                    <option value="perishable">Perishable</option>
+                    <option value="nonperishable">Nonperishable</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">
+                Add Item
+            </button>
+        </form>
+    </div>
 
 </body>
 
 </html>
+

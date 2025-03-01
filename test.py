@@ -11,5 +11,7 @@ inventory = cur.fetchall()
 for i in inventory:
     print(i[4])
 
+print(inventory)
+
 con.close()
 

@@ -7,14 +7,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    con = auth()
-    
-    cur = con.cursor()
-
-    cur.execute('SELECT * FROM "INVENTORY"')
-    inventory = cur.fetchall()
-    for i in inventory:
-        print(i[4])
     return render_template('index.html')
 
 @app.route('/user')
@@ -25,6 +17,14 @@ def user():
 def insert():
     return render_template('insert.html')
 
+@app.route('/inventory')
+def inventory():
+    con = auth()
+    cur = con.cursor()
+    cur.execute('SELECT * FROM "INVENTORY"')
+    inventory = cur.fetchall()
+    con.close()
+    return render_template('inventory.html', inventory=inventory)
+
 if __name__ == "__main__":
     app.run(debug=True)
-    

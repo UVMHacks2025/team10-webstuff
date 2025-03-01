@@ -4,8 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert</title>
+    <style>
+        body {
+            background-color: lightblue; /* Sets the background color */
+            text-align: center; /* Centers the text */
+            font-family: Arial, sans-serif; /* Optional: changes the font */
+        }
+        p {
+            font-size: 24px; /* Makes the font bigger */
+            font-weight: bold; /* Makes the text bold */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: navy;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
 </head>
 <body>
+    <p>Welcome To The Insert Page</p>
+    <p>Please Select From The Choices Below</p>
+    <button onclick="addDonation()">Add Donation</button>
 
+    <script>
+        function addDonation() {
+            alert("Donation added!");
+        }
+    </script>
 </body>
 </html>

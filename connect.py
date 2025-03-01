@@ -14,8 +14,9 @@ def auth():
             user = username, 
             password = pwd,
             port = port_id)
-        conn.close()
+        # conn.close()
     except Exception as error:
         print(error)
     
     return conn
+

@@ -13,35 +13,36 @@
 <body class="bg-blue-100 flex flex-col items-center justify-center min-h-screen text-center p-6"
       style="background-image: url('static/logo_background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
 
+
     <h1 class="text-black-500 text-4xl font-extrabold uppercase tracking-wide mb-6">
         New Donation
     </h1>
 
     <!-- Form Container -->
     <div class="bg-white p-4 rounded-lg shadow-lg w-[600px] h-[700px] mt-6">
-        <form>
+        <form method="POST" action="/insert">
             <!-- Name -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-00 ">Name:</label>
-                <input type="text" class="w-full p-4 border border-gray-300 rounded mt-1" placeholder="Enter item name">
+                <input type="text" name="name" class="w-full p-4 border border-gray-300 rounded mt-1" placeholder="Enter item name">
             </div>
 
             <!-- Quantity -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-700 ">Quantity:</label>
-                <input type="number" class="w-full p-4 border border-gray-300 rounded mt-1" placeholder="Enter quantity">
+                <input type="number" name="quantity" class="w-full p-4 border border-gray-300 rounded mt-1" placeholder="Enter quantity">
             </div>
 
             <!-- Expiration Date -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-700 ">Expiration Date:</label>
-                <input type="date" class="w-full p-4 border border-gray-300 rounded mt-1">
+                <input type="date" name="expiration_date" class="w-full p-4 border border-gray-300 rounded mt-1">
             </div>
 
             <!-- Type Dropdown -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-700 ">Type:</label>
-                <select class="w-full p-4 border border-gray-300 rounded mt-1">
+                <select name="type" class="w-full p-4 border border-gray-300 rounded mt-1">
                     <option value="">Select Type</option>
                     <option value="canned">Canned Goods</option>
                     <option value="dairy">Dairy</option>
@@ -55,7 +56,7 @@
             <!-- Dietary Restriction Dropdown -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-700 ">Dietary Restriction:</label>
-                <select class="w-full p-4 border border-gray-300 rounded mt-1">
+                <select name="dietary_restriction" class="w-full p-4 border border-gray-300 rounded mt-1">
                     <option value="">Select Restriction</option>
                     <option value="none">None</option>
                     <option value="gluten-free">Gluten-Free</option>
@@ -71,11 +72,17 @@
             <!-- Perishable Dropdown -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-700 ">Perishable:</label>
-                <select class="w-full p-4 border border-gray-300 rounded mt-1">
+                <select name="perishable" class="w-full p-4 border border-gray-300 rounded mt-1">
                     <option value="">Select Restriction</option>
                     <option value="perishable">Perishable</option>
                     <option value="nonperishable">Nonperishable</option>
                 </select>
+            </div>
+
+            <!-- Location -->
+            <div class="mb-4">
+                <label class="block text-left font-semibold text-gray-700 ">Location:</label>
+                <input type="text" name="location" class="w-full p-4 border border-gray-300 rounded mt-1" placeholder="Enter location">
             </div>
 
             <!-- Submit Button -->

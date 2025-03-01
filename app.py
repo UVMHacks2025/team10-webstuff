@@ -21,7 +21,7 @@ def insert():
 def inventory():
     con = auth()
     cur = con.cursor()
-    cur.execute('SELECT * FROM "INVENTORY"')
+    cur.execute('SELECT I.container_id, I.quantity, I.entry_date, I.expiration_date, I.food_name FROM "INVENTORY" AS I WHERE I.is_active = 1')
     inventory = cur.fetchall()
     con.close()
     return render_template('inventory.html', inventory=inventory)

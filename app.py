@@ -10,5 +10,9 @@ def index():
 def user():
     return render_template('user.html')
 
+@app.route('/insert')
+def insert():
+    return render_template('insert.html')
+
 if __name__ == "__main__":
     app.run(debug=True)

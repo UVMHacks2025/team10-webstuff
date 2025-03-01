@@ -1,4 +1,8 @@
 from flask import Flask, render_template
+import psycopg2
+from psycopg2 import sql
+
+from connect import auth
 
 app = Flask(__name__)
 
@@ -16,3 +20,4 @@ def insert():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    db_connection = auth()

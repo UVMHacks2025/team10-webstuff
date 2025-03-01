@@ -18,6 +18,36 @@
         th {
             background-color: #f2f2f2; /* Light gray background for headers */
         }
+        /* Button styling */
+        .button {
+            position: fixed;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        /* Add Button */
+        .add-button {
+            bottom: 20px;
+            right: 20px;
+            background-color: #28a745; /* Green */
+        }
+        .add-button:hover {
+            background-color: #218838;
+        }
+        /* Grafana Button */
+        .grafana-button {
+            bottom: 20px;
+            left: 20px;
+            background-color: #007bff; /* Blue */
+        }
+        .grafana-button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -44,5 +74,15 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <!-- Add Item Button -->
+    <a href="/insert" class="button add-button">Add Item</a>
+
+    <!-- Grafana Dashboard Button -->
+    <a href="https://catcupboard.grafana.net/d/eeejzkmsfsmiod/rallycat-inventory?orgId=1&from=now-6h&to=now&timezone=browser&var-food_type=$__all&var-location=$__all&var-restriction=$__all"
+       class="button grafana-button"
+       target="_blank">
+        View Dashboard
+    </a>
 </body>
 </html>

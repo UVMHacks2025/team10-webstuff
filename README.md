@@ -25,3 +25,6 @@ Vegetarian
 Vegan
 Data Analytics & Reports – provide insights on trends, popular items, and waste reduction efforts.
 System needs an item entry UI where donated food items can be easily categorized and logged into the system
+
+## Citations
+tailwind: https://tailwindcss.com/

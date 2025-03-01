@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import psycopg2
 from psycopg2 import sql
 from connect import auth
 
 app = Flask(__name__)
+
+app.secret_key = 's3cr3t_k3y_12345'
 
 # Mapping for food types
 food_type_mapping = {
@@ -78,6 +80,70 @@ def inventory():
     inventory = cur.fetchall()
     con.close()
     return render_template('inventory.html', inventory=inventory)
+
+@app.route('/user', methods=['POST'])
+def register():
+    # Get form data
+    user = 10
+    firstName = request.form.get('first-name')
+    lastName = request.form.get('last-name')
+    email = request.form.get('email')
+    password = request.form.get('psw')
+    password_repeat = request.form.get('psw-repeat')
+    role = request.form.get('role')
+
+    # Form validation
+    if not email or not password or password != password_repeat:
+        flash('Please fill in all fields and ensure passwords match!')
+        return redirect(url_for('user'))
+
+  
+    conn = auth()
+    if conn is None:
+        flash("Database connection failed")
+        return redirect(url_for('user'))
+    
+    cursor = conn.cursor()
+
+    # Insert query (without user_id if it's auto-incrementing)
+    cursor.execute('INSERT INTO "USER" (user_id, first_name, last_name, email, password, role) VALUES (%s,%s, %s, %s, %s, %s)', 
+                    (user,firstName, lastName, email, password, role))
+    conn.commit()  # Commit the transaction
+
+    flash('Registration successful!')
+    return redirect(url_for('user'))
+
+# Login route
+@app.route('/login', methods=['POST'])
+def login():
+    email = request.form.get('uname')  # Username input field
+    password = request.form.get('psw')  # Password input field
+
+    conn = auth()
+    if conn is None:
+        flash("Database connection failed")
+        return redirect(url_for('index'))
+
+    cursor = conn.cursor()
+    
+    # Check if user exists
+    cursor.execute('SELECT * FROM "USER" WHERE email = %s AND password = %s', (email, password))
+    user = cursor.fetchone()
+
+    cursor.close()
+    conn.close()
+
+    if user:
+        session['user'] = email  # Store user session
+        flash('Login successful!')
+        return redirect(url_for('inventory'))  # Redirect to the next page
+
+    else:
+        flash('Invalid email or password!')
+        return redirect(url_for('user'))  # Redirect back to login
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

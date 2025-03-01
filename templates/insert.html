@@ -13,13 +13,12 @@
 <body class="bg-blue-100 flex flex-col items-center justify-center min-h-screen text-center p-6"
       style="background-image: url('static/logo_background.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-attachment: fixed;">
 
-
     <h1 class="text-black-500 text-4xl font-extrabold uppercase tracking-wide mb-6">
         New Donation
     </h1>
 
     <!-- Form Container -->
-    <div class="bg-white p-4 rounded-lg shadow-lg w-[600px] h-[700px] mt-6">
+    <div class="bg-white p-4 rounded-lg shadow-lg w-[600px] h-[800px] mt-6">
         <form method="POST" action="/insert">
             <!-- Name -->
             <div class="mb-4">
@@ -79,10 +78,20 @@
                 </select>
             </div>
 
-            <!-- Location -->
+            <!-- Location Dropdown (Updated) -->
             <div class="mb-4">
                 <label class="block text-left font-semibold text-gray-700 ">Location:</label>
-                <input type="text" name="location" class="w-full p-4 border border-gray-300 rounded mt-1" placeholder="Enter location">
+                <select name="location" class="w-full p-4 border border-gray-300 rounded mt-1">
+                    <option value="">Select Location</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                    <option value="S4">S4</option>
+                    <option value="S5">S5</option>
+                    <option value="S6">S6</option>
+                    <option value="F1">F1</option>
+                    <option value="F2">F2</option>
+                </select>
             </div>
 
             <!-- Submit Button -->
